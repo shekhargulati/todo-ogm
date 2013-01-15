@@ -54,7 +54,7 @@ public class TodoController {
 
 	private List<Todo> newTodoItems() {
 		List<Todo> todos = new ArrayList<Todo>();
-		for (int i = 1; i < 10; i++) {
+		for (int i = 0; i < 2; i++) {
 			todos.add(new Todo("Learn about " + i));
 		}
 		return todos;

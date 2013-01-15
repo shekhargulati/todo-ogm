@@ -2,21 +2,12 @@ package com.todo.domain;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.annotations.GenericGenerator;
-
-@Entity
+@Embeddable
 public class Todo {
-
-	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "uuid")
-	private String id;
 
 	@NotNull
 	@Size(min = 10, max = 40)
@@ -24,20 +15,12 @@ public class Todo {
 
 	@NotNull
 	private Date createdOn = new Date();
-
+	
 	public Todo(String todo) {
 		this.todo = todo;
 	}
 
 	public Todo() {
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
 	}
 
 	public String getTodo() {
@@ -58,7 +41,7 @@ public class Todo {
 
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", todo=" + todo + "]";
+		return "Todo [todo=" + todo + "]";
 	}
 
 }
